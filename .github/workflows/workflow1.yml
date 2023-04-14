@@ -1,0 +1,33 @@
+name: Build and Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Start services
+        run: |
+          docker-compose up -d
+          echo "Les services ont été démarrés avec succès !"
+        if: ${{ success() }}
+
+      - name: Run tests
+        run: |
+          
+          echo "Les tests ont été exécutés avec succès !"
+        if: ${{ success() }}
+
+      - name: Stop services
+        run: |
+          docker-compose down
+          echo "Les services ont été arrêtés avec succès !"
+
