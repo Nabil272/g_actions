@@ -1,13 +1,21 @@
+name: Build and Test
+
 on: [push]
 
 jobs:
   build:
-    name: Hello world
+    name: Build and Test
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Write a multi-line message
-      run: |
-        echo This demo file shows a
-        echo very basic and easy-to-understand workflow.
 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+
+    - name: Start services
+      run: |
+        docker-compose up -d
+
+    - name: Stop services
+      run: |
+        docker-compose down
