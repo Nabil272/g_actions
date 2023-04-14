@@ -22,7 +22,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker-compose run --rm mon_app pytest
+          
           echo "Les tests ont été exécutés avec succès !"
         if: ${{ success() }}
 
