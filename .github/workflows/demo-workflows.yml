@@ -15,6 +15,9 @@ jobs:
     - name: Start services
       run: |
         docker-compose up -d
+        echo "Le bucket S3 a été chargé avec succès !"
+      if: ${{ success() }}
+           
 
     - name: Stop services
       run: |
