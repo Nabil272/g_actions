@@ -3,7 +3,6 @@ version: '3'
 services:
   minio:
     image: minio/minio
-    platform: linux/${PY_ETL_DOCKER_PLATFORM}
     container_name: amazon
     command: server --console-address ":9001" /data
     environment:
