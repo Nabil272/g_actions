@@ -19,6 +19,8 @@ jobs:
           docker-compose up -d
           echo "Les services ont été démarrés avec succès !"
         if: ${{ success() }}
+      - name: lint code
+	run: flake8
 
       - name: Run tests
         run: |

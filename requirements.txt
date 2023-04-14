@@ -1,3 +1,4 @@
 minio
 xmltodict
 pytest
+flake8
